@@ -2,7 +2,7 @@ import { test, expect } from "@playwright/test";
 import pixelmatch from "pixelmatch";
 import { PNG } from "pngjs";
 
-const deployed = "https://bank-ai-assistant-case-club.netlify.app/";
+const deployed = "https://6a82a22aee37ee873290c571--bank-ai-assistant-case-club.netlify.app/";
 
 async function openAssistant(page) {
   await page.goto("/");
