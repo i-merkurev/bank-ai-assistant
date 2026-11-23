@@ -1,0 +1,46 @@
+name: One-time modular JSX migration
+
+on:
+  push:
+    paths:
+      - 'scripts/modularize.mjs'
+      - '.github/workflows/modularize.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  modularize:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Install Babel AST tools and lock dependencies
+        run: |
+          npm install --save-dev @babel/parser @babel/traverse @babel/generator @babel/types --no-audit --no-fund
+      - name: Convert JSX and split screens
+        run: node scripts/modularize.mjs
+      - name: Format recovered React source
+        run: npx prettier --write "src/**/*.{jsx,js,css}"
+      - name: Verify compiled application
+        run: npm run build
+      - name: Verify modules exist
+        run: |
+          test -f src/App.jsx
+          test -f src/screens/ChatScreen.jsx
+          test -f src/screens/ExpensesScreen.jsx
+          test -f src/data/mockData.js
+          grep -q 'function App()' src/App.jsx
+          grep -q 'function ChatScreen(' src/screens/ChatScreen.jsx
+      - name: Commit converted source
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add package.json package-lock.json src
+          if ! git diff --cached --quiet; then
+            git commit -m 'Convert recovered application to modular React JSX'
+            git push
+          fi
