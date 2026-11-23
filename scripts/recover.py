@@ -55,11 +55,11 @@ def candidate_urls(text: str, url: str, mime: str) -> list[str]:
         parser.feed(text)
         candidates.extend(parser.refs)
     if "css" in mime or urlsplit(url).path.endswith(".css"):
-        candidates.extend(re.findall(r"url\\(\\s*['\"]?([^)'\"\\s]+)", text))
-        candidates.extend(re.findall(r"@import\\s+['\"]([^'\"]+)", text))
+        candidates.extend(re.findall(r"url\(\s*['\"]?([^)'\"\s]+)", text))
+        candidates.extend(re.findall(r"@import\s+['\"]([^'\"]+)", text))
     # Vite bundles can reference images and lazy-loaded chunks via root-relative URLs.
     if urlsplit(url).path.endswith((".js", ".css", ".html")):
-        candidates.extend(re.findall(r"['\"](/assets/[^'\"?\\s]+)['\"]", text))
+        candidates.extend(re.findall(r"['\"](/assets/[^'\"?\s]+)['\"]", text))
     candidates.append(url + ".map") if urlsplit(url).path.endswith((".js", ".css")) else None
     return [urljoin(url, item) for item in candidates if item and not item.startswith(("data:", "#", "javascript:"))]
 
