@@ -5,21 +5,23 @@ import ExpensesScreen from "./ExpensesScreen.jsx";
 import RemindersScreen from "./RemindersScreen.jsx";
 import SavingsScreen from "./SavingsScreen.jsx";
 import ChatScreen from "./ChatScreen.jsx";
-
-function AssistantScreen({ view: e, onChangeView: t, onActivate: n }) {
-  return e === `offer` ? (
-    <OfferScreen onActivate={n} />
-  ) : e === `expenses` ? (
-    <ExpensesScreen onBack={() => t(`overview`)} />
-  ) : e === `reminders` ? (
-    <RemindersScreen onBack={() => t(`overview`)} />
-  ) : e === `savings` ? (
-    <SavingsScreen onBack={() => t(`overview`)} />
-  ) : e === `chat` ? (
-    <ChatScreen onBack={() => t(`overview`)} />
+function AssistantScreen({
+  view: view,
+  onChangeView: onChangeView,
+  onActivate: onActivate,
+}) {
+  return view === "offer" ? (
+    <OfferScreen onActivate={onActivate} />
+  ) : view === "expenses" ? (
+    <ExpensesScreen onBack={() => onChangeView("overview")} />
+  ) : view === "reminders" ? (
+    <RemindersScreen onBack={() => onChangeView("overview")} />
+  ) : view === "savings" ? (
+    <SavingsScreen onBack={() => onChangeView("overview")} />
+  ) : view === "chat" ? (
+    <ChatScreen onBack={() => onChangeView("overview")} />
   ) : (
-    <AssistantOverview onOpen={t} />
+    <AssistantOverview onOpen={onChangeView} />
   );
 }
-
 export default AssistantScreen;

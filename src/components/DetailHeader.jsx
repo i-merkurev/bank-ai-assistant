@@ -1,13 +1,13 @@
 import * as React from "react";
-
-function DetailHeader({ title: e, onBack: t, action: n }) {
+function DetailHeader({ title: title, onBack: onBack, action: action }) {
   return (
-    <header className={`sub-header`}>
-      <button onClick={t} aria-label={`Назад`}>{`‹`}</button>
-      <h1>{e}</h1>
-      <span>{n ?? ``}</span>
+    <header className={"sub-header"}>
+      <button onClick={onBack} aria-label={"Назад"}>
+        {"‹"}
+      </button>
+      <h1>{title}</h1>
+      <span>{action ?? ""}</span>
     </header>
   );
 }
-
 export default DetailHeader;
