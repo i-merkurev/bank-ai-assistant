@@ -29,7 +29,7 @@ test("home and navigation are functional", async ({ page }) => {
   await expect(page.getByText("124 850,26 ₽")).toBeVisible();
   await page.getByRole("navigation", { name: "Основная навигация" })
     .getByRole("button", { name: "Платежи" }).click();
-  await expect(page.getByRole("heading", { name: "Платежи" })).toBeVisible();
+  await expect(page.getByRole("heading", { name: "Платежи", exact: true })).toBeVisible();
   await page.getByRole("navigation", { name: "Основная навигация" })
     .getByRole("button", { name: "Карты" }).click();
   await expect(page.getByRole("heading", { name: "Карты" })).toBeVisible();
