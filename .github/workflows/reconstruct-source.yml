@@ -1,0 +1,43 @@
+name: Reconstruct and verify Vite source
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - 'scripts/reconstruct.py'
+      - '.github/workflows/reconstruct-source.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  reconstruct:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Restore app and styles from the deployed build
+        run: python3 scripts/reconstruct.py
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Install project dependencies
+        run: npm install --no-audit --no-fund
+      - name: Format reconstructed app for editing
+        run: npx prettier --write src/main.jsx src/styles.css
+      - name: Verify production build
+        run: npm run build
+      - name: Check expected screens in reconstructed source
+        run: |
+          grep -q 'function App(' src/main.jsx
+          grep -q 'function ChatScreen(' src/main.jsx
+          grep -q 'function SavingsScreen(' src/main.jsx
+          test -f dist/index.html
+      - name: Save sources to GitHub main
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add src/main.jsx src/styles.css package-lock.json
+          if ! git diff --cached --quiet; then
+            git commit -m 'Restore editable React application from published build'
+            git push
+          fi
