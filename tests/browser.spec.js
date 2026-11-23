@@ -119,3 +119,20 @@ test("original Netlify interface visually matches recovered interface", async ({
     await live.close();
   }
 });
+
+
+test("narrow mobile viewport still supports subscription and keyboard chat", async ({ page }) => {
+  await page.setViewportSize({ width: 390, height: 844 });
+  await page.goto("/");
+  const bounds = await page.locator(".phone").boundingBox();
+  expect(bounds).not.toBeNull();
+  expect(bounds.width).toBeLessThanOrEqual(390);
+  await page.getByRole("navigation", { name: "Основная навигация" })
+    .getByRole("button", { name: "AI-помощник" }).click();
+  await page.getByRole("button", { name: "Попробовать бесплатно" }).click();
+  await page.locator(".service-grid button").filter({ hasText: "Задать вопрос" }).click();
+  await page.getByRole("textbox", { name: "Вопрос AI-помощнику" })
+    .fill("Хватит ли денег до зарплаты?");
+  await page.getByRole("textbox", { name: "Вопрос AI-помощнику" }).press("Enter");
+  await expect(page.getByText(/Сейчас на счетах 124 850 ₽/)).toBeVisible();
+});
