@@ -207,7 +207,7 @@ function HomeScreen({ onOpenAssistant: e, isAssistantActive: t }) {
           (0, p.jsxs)(`span`, {
             className: `promo-copy`,
             children: [
-              (0, p.jsx)(`AssistantScreen`, {
+              (0, p.jsx)(`strong`, {
                 children: t
                   ? `Ваш финансовый отчёт готов`
                   : `Финансы под контролем с AI`,
@@ -254,7 +254,7 @@ function HomeScreen({ onOpenAssistant: e, isAssistantActive: t }) {
                     (0, p.jsxs)(`span`, {
                       className: `transaction-copy`,
                       children: [
-                        (0, p.jsx)(`AssistantScreen`, { children: e.title }),
+                        (0, p.jsx)(`strong`, { children: e.title }),
                         (0, p.jsx)(`small`, { children: e.meta }),
                       ],
                     }),
@@ -366,7 +366,7 @@ function OfferScreen({ onActivate: e }) {
             children: [
               (0, p.jsxs)(`span`, {
                 children: [
-                  (0, p.jsx)(`AssistantScreen`, {
+                  (0, p.jsx)(`strong`, {
                     children: `30 дней бесплатно`,
                   }),
                   (0, p.jsx)(`small`, { children: `затем 399 ₽ в месяц` }),
@@ -402,7 +402,7 @@ function FeatureRow({ icon: e, title: t, text: n }) {
       (0, p.jsx)(`span`, { "aria-hidden": `true`, children: e }),
       (0, p.jsxs)(`div`, {
         children: [
-          (0, p.jsx)(`AssistantScreen`, { children: t }),
+          (0, p.jsx)(`strong`, { children: t }),
           (0, p.jsx)(`small`, { children: n }),
         ],
       }),
@@ -467,7 +467,7 @@ function AssistantOverview({ onOpen: e }) {
                   "aria-hidden": `true`,
                   children: t.icon,
                 }),
-                (0, p.jsx)(`AssistantScreen`, { children: t.title }),
+                (0, p.jsx)(`strong`, { children: t.title }),
                 (0, p.jsx)(`small`, { children: t.subtitle }),
                 (0, p.jsx)(`i`, { "aria-hidden": `true`, children: `›` }),
               ],
@@ -505,7 +505,7 @@ function AssistantOverview({ onOpen: e }) {
           (0, p.jsx)(`span`, { "aria-hidden": `true`, children: `✦` }),
           (0, p.jsxs)(`span`, {
             children: [
-              (0, p.jsx)(`AssistantScreen`, {
+              (0, p.jsx)(`strong`, {
                 children: `Спросите AI-помощника`,
               }),
               (0, p.jsx)(`small`, { children: `Например, как начать копить` }),
@@ -540,7 +540,7 @@ function ExpensesScreen({ onBack: e }) {
         className: `period-switch`,
         children: [
           (0, p.jsx)(`button`, { children: `‹` }),
-          (0, p.jsx)(`AssistantScreen`, { children: `Август 2026` }),
+          (0, p.jsx)(`strong`, { children: `Август 2026` }),
           (0, p.jsx)(`button`, { children: `›` }),
         ],
       }),
@@ -560,7 +560,7 @@ function ExpensesScreen({ onBack: e }) {
             "aria-label": `Диаграмма расходов`,
             children: (0, p.jsxs)(`span`, {
               children: [
-                (0, p.jsx)(`AssistantScreen`, { children: `86,4` }),
+                (0, p.jsx)(`strong`, { children: `86,4` }),
                 (0, p.jsx)(`small`, { children: `тыс. ₽` }),
               ],
             }),
@@ -603,7 +603,7 @@ function ExpensesScreen({ onBack: e }) {
           (0, p.jsx)(`span`, { "aria-hidden": `true`, children: `✦` }),
           (0, p.jsxs)(`div`, {
             children: [
-              (0, p.jsx)(`AssistantScreen`, { children: `Рекомендация AI` }),
+              (0, p.jsx)(`strong`, { children: `Рекомендация AI` }),
               (0, p.jsx)(`p`, {
                 children: `Расходы на кафе выросли на 18%. Попробуйте сократить их на 10% – так вы сэкономите около 1 500 ₽.`,
               }),
@@ -621,7 +621,7 @@ function LegendItem({ color: e, title: t, value: n }) {
       (0, p.jsx)(`i`, { className: e }),
       (0, p.jsxs)(`span`, {
         children: [
-          (0, p.jsx)(`AssistantScreen`, { children: t }),
+          (0, p.jsx)(`strong`, { children: t }),
           (0, p.jsx)(`small`, { children: n }),
         ],
       }),
@@ -645,7 +645,7 @@ function RemindersScreen({ onBack: e }) {
           (0, p.jsx)(`span`, { children: `◷` }),
           (0, p.jsxs)(`div`, {
             children: [
-              (0, p.jsx)(`AssistantScreen`, {
+              (0, p.jsx)(`strong`, {
                 children: `Ближайший платёж завтра`,
               }),
               (0, p.jsx)(`p`, { children: `Домашний интернет · 1 290 ₽` }),
@@ -682,7 +682,7 @@ function RemindersScreen({ onBack: e }) {
                 (0, p.jsx)(`span`, { children: e.icon }),
                 (0, p.jsxs)(`div`, {
                   children: [
-                    (0, p.jsx)(`AssistantScreen`, { children: e.title }),
+                    (0, p.jsx)(`strong`, { children: e.title }),
                     (0, p.jsxs)(`small`, {
                       children: [e.date, ` · `, e.amount],
                     }),
@@ -717,7 +717,7 @@ function RemindersScreen({ onBack: e }) {
           (0, p.jsx)(`span`, { "aria-hidden": `true`, children: `✦` }),
           (0, p.jsxs)(`div`, {
             children: [
-              (0, p.jsx)(`AssistantScreen`, { children: `Совет AI` }),
+              (0, p.jsx)(`strong`, { children: `Совет AI` }),
               (0, p.jsx)(`p`, {
                 children: `Включите автоплатежи, чтобы не пропускать даты оплаты.`,
               }),
@@ -760,7 +760,7 @@ function SavingsScreen({ onBack: e }) {
             className: `goal-top`,
             children: [
               (0, p.jsx)(`span`, { children: `Подушка безопасности` }),
-              (0, p.jsx)(`AssistantScreen`, { children: `36%` }),
+              (0, p.jsx)(`strong`, { children: `36%` }),
             ],
           }),
           (0, p.jsxs)(`h2`, {
@@ -784,7 +784,7 @@ function SavingsScreen({ onBack: e }) {
           (0, p.jsx)(`span`, { "aria-hidden": `true`, children: `✦` }),
           (0, p.jsxs)(`div`, {
             children: [
-              (0, p.jsx)(`AssistantScreen`, { children: `Рекомендация AI` }),
+              (0, p.jsx)(`strong`, { children: `Рекомендация AI` }),
               (0, p.jsx)(`p`, {
                 children: `Откладывайте 10% дохода сразу после получения денег. Это поможет сформировать полезную привычку.`,
               }),
@@ -953,7 +953,7 @@ function OtherTabScreen({ kind: e }) {
                 className: `mini-bank-card`,
                 children: [
                   (0, p.jsx)(`span`, { children: `СБ` }),
-                  (0, p.jsx)(`AssistantScreen`, { children: `124 850,26 ₽` }),
+                  (0, p.jsx)(`strong`, { children: `124 850,26 ₽` }),
                   (0, p.jsx)(`small`, { children: `•• 4821` }),
                 ],
               }),
