@@ -1,0 +1,33 @@
+{
+  "source": "https://bank-ai-assistant-case-club.netlify.app/",
+  "downloaded_at": "2026-11-23T10:10:54.686036+00:00",
+  "note": "Deployed build only; not original Vite sources.",
+  "files": [
+    {
+      "url": "https://bank-ai-assistant-case-club.netlify.app/",
+      "path": "index.html",
+      "bytes": 639,
+      "content_type": "text/html"
+    },
+    {
+      "url": "https://bank-ai-assistant-case-club.netlify.app/assets/index-CLkHIaMy.js",
+      "path": "assets/index-CLkHIaMy.js",
+      "bytes": 210183,
+      "content_type": "application/javascript"
+    },
+    {
+      "url": "https://bank-ai-assistant-case-club.netlify.app/assets/index-Cz_nTUpQ.css",
+      "path": "assets/index-Cz_nTUpQ.css",
+      "bytes": 19143,
+      "content_type": "text/css"
+    },
+    {
+      "url": "https://bank-ai-assistant-case-club.netlify.app/assets/index-CLkHIaMy.js.map",
+      "error": "HTTP Error 404: Not Found"
+    },
+    {
+      "url": "https://bank-ai-assistant-case-club.netlify.app/assets/index-Cz_nTUpQ.css.map",
+      "error": "HTTP Error 404: Not Found"
+    }
+  ]
+}
